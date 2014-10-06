@@ -1,6 +1,60 @@
+snippet propr
+/**
+ * @SWG\Property(name="${1}",type="${2:string}",required=true,
+ * description="${3}")
+ */
+endsnippet
+
 snippet prop
 /**
  * @SWG\Property(name="${1}",type="${2:string}",
  * description="${3}")
  */
+endsnippet
+
+snippet generic
+<?php
+/**
+ * ${3:A generic model which you can use as a template.}
+ *
+ * @category   Model
+ * @package    API v1
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @copyright  Copyright &copy; 2014 Xsilva Systems, Inc. http://www.lightspeedretail.com
+ * @version    1.0
+ * @since      2014-18-07
+ */
+
+/**
+ * @SWG\Model(id="${1}")
+ */
+namespace webservice\modules\v1\models;
+
+class $1 extends BaseModel
+{
+	// @var	array The visible attributes of this model.
+	protected static $attributes = array(
+	);
+
+	/* Retrieve an attribute.
+	 * @param string $property The attribute to be retrieved.
+	 */
+	public function __get($property)
+	{
+		switch ($property) {
+		}
+	}
+}
+endsnippet
+
+snippet log
+Yii::log(${1}, 'error', 'application.'.__CLASS__.".".__FUNCTION__);
+endsnippet
+
+snippet param
+@param ${1:string} ${2:variableName} ${3:description}
+endsnippet
+
+snippet sc "shopping cart" i
+Yii::app()->shoppingcart->
 endsnippet
