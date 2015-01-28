@@ -31,3 +31,56 @@ endsnippet
 snippet @rv
 @returns {void}
 endsnippet
+
+# START from https://github.com/lencioni/dotfiles/blob/master/.vim/UltiSnips/jasmine.snippetsj
+snippet des "describe() block" b
+describe('${1}', function() {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet con "context() block" b
+context('${1}', function() {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet bef "beforeEach() block" b
+beforeEach(function() {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet aft "afterEach() block" b
+afterEach(function() {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet it "it() block" b
+it('${1}', function() {
+	${0:${VISUAL}}
+});
+endsnippet
+
+snippet exp "expect() assertion" b
+expect(${1})${2}.to${3}(${0:${VISUAL}});
+endsnippet
+
+snippet mproto "module.prototype"
+module.prototype.${1} = function(${2}) {
+	${3}
+};${4}
+endsnippet
+
+snippet throw "throw new Error()"
+throw new Error('${1}');${2}
+endsnippet
+
+snippet proto "myModule.prototype.myFunction = function () {}"
+${1}.prototype.${2} = function(${3}) {
+	${4}
+};${5}
+endsnippet
+
+# END from https://github.com/lencioni/dotfiles/blob/master/.vim/UltiSnips/jasmine.snippets
