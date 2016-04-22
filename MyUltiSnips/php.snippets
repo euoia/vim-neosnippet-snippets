@@ -58,3 +58,14 @@ endsnippet
 snippet sc "shopping cart" i
 Yii::app()->shoppingcart->
 endsnippet
+
+snippet logs
+Yii::log(
+	sprintf(
+		'${1}',
+		${2}
+	),
+	'error',
+	'application.'.__CLASS__.".".__FUNCTION__
+);
+endsnippet

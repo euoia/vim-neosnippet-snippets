@@ -1,13 +1,45 @@
-snippet log "console.log" b
-console.log(${1:"${2:value}"});
+snippet 1{ "function" i
+(${1} => {
+	${2}
+});${3}
 endsnippet
 
-snippet dir "console.dir" b
+snippet {{ "function" i
+((${1}) => {
+	${2}
+});${3}
+endsnippet
+
+snippet ({ "1 argument followed by function" i
+(${1}, (${2}) => {
+	${3}
+});${4}
+endsnippet
+
+snippet "^const " "const require" rbA
+const ${1} = require('${2:$1}');
+endsnippet
+
+snippet mt "method"
+${1} (${2}) {
+	${3}
+}
+endsnippet
+
+snippet cl "console.log" b
+console.log(${1:\`${2:value}\`});
+endsnippet
+
+snippet log "console.log" b
+log.info(${1:\`${2:value}\`});
+endsnippet
+
+snippet cd "console.dir" b
 console.dir(${1:object});
 endsnippet
 
 snippet req "require" b
-${1:pkg} = require('$1')
+const ${1:pkg} = require('$1');
 endsnippet
 
 snippet err "throw new Error" b
@@ -82,5 +114,106 @@ ${1}.prototype.${2} = function(${3}) {
 	${4}
 };${5}
 endsnippet
-
 # END from https://github.com/lencioni/dotfiles/blob/master/.vim/UltiSnips/jasmine.snippets
+
+snippet mod "module.exports"
+/* exported $1 */
+var ${1} = module.exports = function $1(options) {
+	if (typeof options === 'undefined') {
+		throw new Error('must provide an options object');
+	}
+};
+endsnippet
+
+snippet ev "event listener"
+this.events.on('${1}', function (eventData) {
+	${2}
+}.bind(this))${1}
+endsnippet
+
+snippet evem
+this.events.emit(
+	'${1}',
+	{
+		${2}
+	});
+endsnippet
+
+snippet fun "function with bind(this)" w
+function (${1}) {
+	${2}
+}.bind(this));
+endsnippet
+
+snippet @prop "@prop {Type} varname - Description"
+@property {${1:Type}} ${2:varname} ${3:Description}
+endsnippet
+
+snippet @nprop
+/**
+ * @property {${1:Type}} ${2:varname} ${3:Description}
+ */
+this.$2 = null;
+endsnippet
+
+snippet validate
+if (typeof options.${1:varname} !== '${2:string}') {
+	throw new Error('must provide an options.$1 $2');
+}
+endsnippet
+
+snippet reqjs
+${1} = require('./$1.js')${2}
+endsnippet
+
+snippet .map ".map" i
+.map((${1}) => {
+	${2}
+});
+endsnippet
+
+snippet action
+this.applyAction({
+	type: ${1}
+});
+endsnippet
+
+snippet ld
+console.log('${1} = ', $1);
+endsnippet
+
+snippet _.each
+_.each(${1}, ${2} => {
+	${3}
+});
+endsnippet
+
+snippet imp
+import ${1:moduleName} from '${2:$1}';
+endsnippet
+
+snippet check!
+import check from 'check-types';
+endsnippet
+
+snippet lodash!
+import _ from 'lodash';
+endsnippet
+
+snippet ask
+{
+	name: '${1:name}',
+	type: ${2:attacking},
+	mp: ${3:mp},
+	damage: ${4:damage}
+},
+endsnippet
+
+snippet sk
+{
+	name: '${1:name}',
+	type: ${2:attacking},
+	mp: ${3:mp},
+	${4}
+},
+endsnippet
